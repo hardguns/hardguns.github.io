@@ -2,14 +2,18 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, ExternalLink, Mail, Menu, X } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { image } from "framer-motion/client";
 
 const professionalProjects = [
   {
     slug: "killer-klowns-from-outer-space",
-    title: "Killer Klowns From Outer Space",
+    title: "Killer Klowns From Outer Space: The Game",
+    image: "/images/killerklowns.png",
     studioLine: "Teravision Games, IllFonic",
     cardMeta: "Teravision Games, IllFonic · 2024",
-    platforms: "Xbox Series X/S, PlayStation 5 and Steam",
+    platforms: "Xbox Series X/S, PlayStation 5, Steam",
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
     genre: "Asymmetrical horror, 7v3 PvP, Multiplayer",
     category: "Professional Project",
     year: "2024",
@@ -18,7 +22,7 @@ const professionalProjects = [
     overview:
       "Killer Klowns from Outer Space: The Game is an asymmetrical multiplayer horror based on the iconic ‘80s film. In the battle between Killer Klowns and citizens of Crescent Cove.",
     tech: "Unreal Engine, C++, GAS, Multiplayer, FMOD, AI, Network Optimization, Gameplay",
-    video: "https://www.youtube.com/embed/ilwcOZTBa64",
+    video: "https://www.youtube.com/watch?v=1LQxnkXpm-A",
     role: "Unreal Programmer, Senior Gameplay Programmer",
     learnings: [
       "Learned how multiplayer features work in Unreal Engine and how to implement them in production systems.",
@@ -29,15 +33,20 @@ const professionalProjects = [
     secondaryType: "companies",
     secondaryItems: ["Teravision Games", "IllFonic"],
     galleryCount: 4,
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "FMOD", "AI"],
   },
   {
     slug: "orcs-must-die-by-the-blade",
     title: "Orcs Must Die: By the Blade",
+    image: "/images/orcs.png",
     studioLine: "Teravision Games, Robot Entertainment, Meta",
     cardMeta: "Teravision Games, Robot Entertainment, Meta · 2026",
     platforms: "Meta Quest 2/3/3S",
-    genre: "Adventure • Role playing • Action • Coop • VR",
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
+    genre: "Adventure • Role playing • Action • Co-op • VR",
     category: "Professional Project",
     year: "2026",
     shortDescription:
@@ -57,120 +66,44 @@ const professionalProjects = [
     secondaryType: "companies",
     secondaryItems: ["Teravision Games", "Robot Entertainment", "Meta"],
     galleryCount: 4,
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "AI", "Optimization"],
   },
 ];
 
 const personalProjects = [
   {
-    slug: "new-moon",
-    title: "New Moon",
+    slug: "cannon-spike-like",
+    title: "Cannon Spike Like",
     studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2019",
+    cardMeta: "Solo Project · 2026",
     platforms: "PC",
-    genre: "Singleplayer, RPG, Turn-based combat",
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
+    genre: "Singleplayer, Multiplayer, Co-op, PvE, Multi-directional shooter",
     category: "Personal Project",
-    year: "2019",
+    year: "2026",
     shortDescription:
-      "Early RPG project focused on learning turn-based combat, inventory, movement, UI, and fundamental game programming systems.",
+      "Modern reinterpretation of Cannon Spike built in Unreal Engine with AngelScript, multiplayer support, AI, and dynamic camera systems.",
     overview:
-      "First project I worked on in videogames, focused on learning the basics of game programming by creating systems like turn-based combat, inventory, character movement, UI, and core components.",
-    tech: "Unity, C#, Photoshop",
+      "A modern reinterpretation of Cannon Spike, developed in Unreal Engine using the AngelScript framework, combining the fast-paced spirit of the original with updated gameplay mechanics.",
+    tech: "Unreal Engine, AngelScript, Multiplayer, AI",
     video: null,
     role: "Game Developer - Game Designer",
     learnings: [
-      "Developed a game from the ground up, covering its concept, structure, and execution.",
-      "Built a strong foundation in programming logic for game development.",
-      "Understood how core gameplay systems are designed and implemented.",
+      "Accelerated gameplay mechanic development using AngelScript.",
+      "Implemented multiplayer functionality to support competitive gameplay.",
+      "Designed and developed a dynamic camera system to enhance combat readability and player movement.",
+      "Usage of AngelScript plugin that allows to use scripted classes to create and implemente features in Unreal Engine"
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Combat systems", "Gameplay flow", "Player progression"],
+    secondaryItems: ["Dynamic camera system", "Multiplayer connection"],
     galleryCount: 4,
-    tags: ["Unity", "C#", "RPG", "Turn-based", "UI"],
-  },
-  {
-    slug: "project-mfg",
-    title: "Project MFG",
-    studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2020",
-    platforms: "PC",
-    genre: "Singleplayer, TPS",
-    category: "Personal Project",
-    year: "2020",
-    shortDescription:
-      "First Unreal Engine project centered on gameplay mechanics, AI, UI, animation, audio, and multidisciplinary development.",
-    overview:
-      "First project developed in Unreal Engine, centered on gameplay mechanics and built through a multidisciplinary approach across key areas of the engine, including AI, UI, animation, audio, and gameplay systems, while combining C++ implementation with game design principles.",
-    tech: "Unreal Engine, C++",
-    video: null,
-    role: "Game Developer - Game Designer",
-    learnings: [
-      "Continued learning Unreal Engine with an initial exploration of the shooter genre.",
-      "Created and implemented core gameplay mechanics.",
-      "Received guidance and mentorship from experienced game industry professionals to develop mechanics aligned with current industry standards.",
-    ],
-    secondaryTitle: "Systems",
-    secondaryType: "list",
-    secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Audio and UI"],
-    galleryCount: 4,
-    tags: ["Unreal Engine", "C++", "TPS", "Gameplay"],
-  },
-  {
-    slug: "urban-warzone",
-    title: "Urban Warzone",
-    studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2020",
-    platforms: "PC",
-    genre: "Multiplayer, FPS, PvP",
-    category: "Personal Project",
-    year: "2020",
-    shortDescription:
-      "Unity FPS multiplayer project using Photon, with lobby creation and a simple PvP networking experience.",
-    overview:
-      "Unity project focused on first-person shooter development using Photon, featuring lobby creation and a simple multiplayer experience.",
-    tech: "Unity, C#",
-    video: null,
-    role: "Game Developer - Game Designer",
-    learnings: [
-      "Built my first multiplayer game in Unity using Photon.",
-      "Developed foundational knowledge of networking inside a first-person shooter project.",
-      "Designed and implemented lobby systems to support a simple multiplayer experience.",
-    ],
-    secondaryTitle: "Systems",
-    secondaryType: "list",
-    secondaryItems: ["Lobby system", "FPS character and weapons", "Multiplayer replication functionality"],
-    galleryCount: 4,
-    tags: ["Unity", "C#", "Photon", "FPS", "Multiplayer"],
-  },
-  {
-    slug: "box-shooter-roller-madness",
-    title: "Box Shooter / Roller Madness",
-    studioLine: "Bootcamp",
-    cardMeta: "Bootcamp · 2021",
-    subtitle:
-      "Game Developer bootcamp project set developed in Colombia, centered on prototyping simple but engaging gameplay mechanics.",
-    platforms: "PC",
-    genre: "Singleplayer",
-    category: "Personal Project",
-    year: "2021",
-    shortDescription:
-      "Arcade-style bootcamp projects focused on quick prototyping, gameplay polish, AI behavior, and player feedback.",
-    overview:
-      "Arcade-style games built around simple, fast-paced objectives. The first focuses on shooting boxes of different colors to gain buffs and debuffs while aiming for the highest possible score. The second centers on collecting coins as quickly as possible while avoiding hostile cubes, encouraging speedrun-style gameplay.",
-    tech: "Unity, C#",
-    video: null,
-    role: "Game Developer - Game Designer",
-    learnings: [
-      "Gained initial experience working with AI behavior systems in Unity.",
-      "Designed simple but engaging gameplay mechanics under short development timelines.",
-      "Improved the overall look and feel of games through polish, iteration, and player-focused refinement.",
-    ],
-    secondaryTitle: "Systems",
-    secondaryType: "list",
-    secondaryItems: ["AI behavior", "Gunplay", "Character movement", "Pickup system"],
-    galleryCount: 4,
-    tags: ["Unity", "C#", "Arcade", "AI", "Prototype"],
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
+    tags: ["Unreal Engine", "AngelScript", "AI", "Multiplayer"],
   },
   {
     slug: "blaster-multiplayer",
@@ -178,6 +111,8 @@ const personalProjects = [
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2024",
     platforms: "PC",
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
     genre: "Multiplayer, TPS, PvP",
     category: "Personal Project",
     year: "2024",
@@ -200,34 +135,137 @@ const personalProjects = [
     secondaryType: "list",
     secondaryItems: ["Multiplayer character movement and gunplay", "Match control system", "Pickup system"],
     galleryCount: 4,
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
     tags: ["Unreal Engine", "Networking", "Multiplayer", "TPS", "PvP"],
   },
   {
-    slug: "cannon-spike-like",
-    title: "Cannon Spike Like",
-    studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2026",
+    slug: "box-shooter-roller-madness",
+    title: "Box Shooter / Roller Madness",
+    studioLine: "Bootcamp",
+    cardMeta: "Bootcamp · 2021",
+    subtitle:
+      "Game Developer bootcamp project set developed in Colombia, centered on prototyping simple but engaging gameplay mechanics.",
     platforms: "PC",
-    genre: "Singleplayer, Multiplayer, Coop, PvE, Multi-directional shooter",
+    engine: "Unity",
+    engineicon: "/icons/unity.svg",
+    genre: "Singleplayer",
     category: "Personal Project",
-    year: "2026",
+    year: "2021",
     shortDescription:
-      "Modern reinterpretation of Cannon Spike built in Unreal Engine with AngelScript, multiplayer support, AI, and dynamic camera systems.",
+      "Arcade-style bootcamp projects focused on quick prototyping, gameplay polish, AI behavior, and player feedback.",
     overview:
-      "A modern reinterpretation of Cannon Spike, developed in Unreal Engine using the AngelScript framework, combining the fast-paced spirit of the original with updated gameplay mechanics.",
-    tech: "Unreal Engine, AngelScript, Multiplayer, AI",
+      "Arcade-style games built around simple, fast-paced objectives. The first focuses on shooting boxes of different colors to gain buffs and debuffs while aiming for the highest possible score. The second centers on collecting coins as quickly as possible while avoiding hostile cubes, encouraging speedrun-style gameplay.",
+    tech: "Unity, C#",
     video: null,
     role: "Game Developer - Game Designer",
     learnings: [
-      "Accelerated gameplay mechanic development using AngelScript.",
-      "Implemented multiplayer functionality to support competitive gameplay.",
-      "Designed and developed a dynamic camera system to enhance combat readability and player movement.",
+      "Gained initial experience working with AI behavior systems in Unity.",
+      "Designed simple but engaging gameplay mechanics under short development timelines.",
+      "Improved the overall look and feel of games through polish, iteration, and player-focused refinement.",
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Dynamic camera system", "Multiplayer connection"],
+    secondaryItems: ["AI behavior", "Gunplay", "Character movement", "Pickup system"],
     galleryCount: 4,
-    tags: ["Unreal Engine", "AngelScript", "AI", "Multiplayer"],
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
+    tags: ["Unity", "C#", "Arcade", "AI", "Prototype"],
+  },
+  {
+    slug: "project-mfg",
+    title: "Project W.E.S.T.",
+    studioLine: "Solo Project",
+    cardMeta: "Solo Project · 2020",
+    platforms: "PC",
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
+    genre: "Singleplayer, TPS",
+    category: "Personal Project",
+    year: "2020",
+    shortDescription:
+      "First Unreal Engine project centered on gameplay mechanics, AI, UI, animation, audio, and multidisciplinary development.",
+    overview:
+      "First project developed in Unreal Engine, centered on gameplay mechanics and built through a multidisciplinary approach across key areas of the engine, including AI, UI, animation, audio, and gameplay systems, while combining C++ implementation with game design principles.",
+    tech: "Unreal Engine, C++",
+    video: null,
+    role: "Game Developer - Game Designer",
+    learnings: [
+      "Continued learning Unreal Engine with an initial exploration of the shooter genre.",
+      "Created and implemented core gameplay mechanics.",
+      "Received guidance and mentorship from experienced game industry professionals to develop mechanics aligned with current industry standards.",
+    ],
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Audio and UI"],
+    galleryCount: 4,
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
+    tags: ["Unreal Engine", "C++", "TPS", "Gameplay"],
+  },
+  {
+    slug: "urban-warzone",
+    title: "Urban Warzone",
+    image: "/images/urbanwarzone.png",
+    studioLine: "Solo Project",
+    cardMeta: "Solo Project · 2020",
+    platforms: "PC",
+    engine: "Unity",
+    engineicon: "/icons/unity.svg",
+    genre: "Multiplayer, FPS, PvP",
+    category: "Personal Project",
+    year: "2020",
+    shortDescription:
+      "Unity FPS multiplayer project using Photon, with lobby creation and a simple PvP networking experience.",
+    overview:
+      "Unity project focused on first-person shooter development using Photon, featuring lobby creation and a simple multiplayer experience.",
+    tech: "Unity, C#",
+    video: null,
+    role: "Game Developer - Game Designer",
+    learnings: [
+      "Built my first multiplayer game in Unity using Photon.",
+      "Developed foundational knowledge of networking inside a first-person shooter project.",
+      "Designed and implemented lobby systems to support a simple multiplayer experience.",
+    ],
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: ["Lobby system", "FPS character and weapons", "Multiplayer replication functionality"],
+    galleryCount: 4,
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
+    tags: ["Unity", "C#", "Photon", "FPS", "Multiplayer"],
+  },
+  {
+    slug: "new-moon",
+    title: "New Moon",
+    image: "/images/NewMoon/newmoon.png",
+    studioLine: "Solo Project",
+    cardMeta: "Solo Project · 2019",
+    platforms: "PC",
+    engine: "Unity",
+    engineicon: "/icons/unity.svg",
+    genre: "Singleplayer, RPG, Turn-based combat",
+    category: "Personal Project",
+    year: "2019",
+    shortDescription:
+      "Early RPG project focused on learning turn-based combat, inventory, movement, UI, and fundamental game programming systems.",
+    overview:
+      "First project I worked on in videogames, focused on learning the basics of game programming by creating systems like turn-based combat, inventory, character movement, UI, and core components.",
+    tech: "Unity, C#, Photoshop",
+    video: "videos/GameplayNewMoon.mp4",
+    role: "Game Developer - Game Designer",
+    learnings: [
+      "Developed a game from the ground up, covering its concept, structure, and execution.",
+      "Built a strong foundation in programming logic for game development.",
+      "Understood how core gameplay systems are designed and implemented.",
+    ],
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: ["Combat systems", "Gameplay flow", "Player progression", "NPC Dialogue interactions", "Quest progression"],
+    galleryCount: 4,
+    gallerySrc: "images/NewMoon/",
+    fileExtensions: ["gif", "gif", "gif", "gif"],
+    tags: ["Unity", "C#", "RPG", "Turn-based", "UI"],
   },
 ];
 
@@ -267,8 +305,8 @@ function ProjectCard({ project, index, onOpen }) {
       className="group block w-full text-left"
     >
       <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-black/30">
-        <div className="aspect-[16/10] w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
-        <div className="p-6">
+        <img src={project.image} alt="project" className="aspect-[16/9] w-full bg-gradient-to-br" />
+        <div className="p-6 pb-4 relative">
           <div className="mb-4 flex items-start justify-between gap-3">
             <div>
               <p className="mb-2 text-xs uppercase tracking-[0.22em] text-zinc-500">
@@ -281,6 +319,8 @@ function ProjectCard({ project, index, onOpen }) {
             <ArrowUpRight className="h-5 w-5 shrink-0 text-zinc-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white" />
           </div>
           <p className="mb-5 text-sm leading-6 text-zinc-400">{project.shortDescription}</p>
+
+          <img src={project.engineicon} alt="engine" className="absolute bottom-4 right-4 w-7 h-7 opacity-70 hover:opacity-100 transition" />
 
           <div className="flex flex-wrap gap-2">
             {project.genre
@@ -304,16 +344,16 @@ function ProjectCard({ project, index, onOpen }) {
 
 function CompanyTile({ name }) {
   return (
-    <div className="flex min-h-[110px] items-center justify-center rounded-[1.5rem] border border-zinc-800 bg-black px-4 text-center text-sm font-medium text-zinc-300">
-      {name}
-    </div>
+    <img src={`images/${name}.png`} alt={`${name}`} className="aspect-[16/9] h-full w-full object-cover" />
   );
 }
 
-function GalleryTile({ projectTitle, index }) {
+function GalleryTile({ projectTitle, index, projectSlug, gallerySrc, fileExtension }) {
   return (
     <div className="overflow-hidden rounded-[1.5rem] border border-zinc-800 bg-black">
-      <div className="aspect-[4/3] w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
+      <div className="w-full">
+        <img src={`${gallerySrc}${projectSlug}${index + 1}.${fileExtension}`} alt={`${projectTitle} shot ${index + 1}`} className="h-full w-full object-cover" />
+      </div>
       <div className="border-t border-zinc-800 px-4 py-3 text-xs uppercase tracking-[0.18em] text-zinc-500">
         {projectTitle} · Shot {index + 1}
       </div>
@@ -421,7 +461,7 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-zinc-500">Selected work</p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Professional projects</h2>
             <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-400">
-              Projects developed with multiple interdisciplinary teams, focused on Coop and PvP multiplayer, mentorship, network, CPU and GPU optimization.
+              Projects developed with multiple interdisciplinary teams, focused on Co-op and PvP multiplayer, mentorship, network, CPU and GPU optimization.
             </p>
           </div>
 
@@ -453,14 +493,14 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
             <div>
               <p className="mb-3 text-xs uppercase tracking-[0.28em] text-zinc-500">About</p>
               <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950">
-                <div className="aspect-[4/5] w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
+               <img src="/images/me.jpg" alt="Profile" className="aspect-[4/5] w-full object-cover" />
               </div>
             </div>
 
             <div className="flex h-full items-center">
               <div className="space-y-5 text-base leading-8 text-zinc-400">
                 <p>
-                Senior AI Programmer specialized in Unreal Engine and C++, focused on gameplay systems and artificial intelligence for video games. I have worked on multiple titles, developing AI systems, multiplayer mechanics, and optimization tools.
+                I'm a Senior AI Programmer specialized in Unreal Engine and C++, focused on gameplay systems and artificial intelligence for video games. I have worked on multiple titles, developing AI systems, multiplayer mechanics, and optimization tools.
               </p>
               <p>
                 I am driven by creating innovative player experiences and solving complex technical challenges. My career goal is to continue growing in the industry and contribute to building dynamic, impactful games.
@@ -484,16 +524,16 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
               </div>
 
               <div className="grid gap-3 text-sm">
-                <a href="mailto:tucorreo@ejemplo.com" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
-                  <Mail className="h-4 w-4" /> tucorreo@ejemplo.com
+                <a href="mailto:jkm9538@hotmail.com" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
+                  <Mail className="h-4 w-4" /> jkm9538@hotmail.com
                 </a>
-                <a href="https://www.linkedin.com" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
+                <a href="https://www.linkedin.com/in/mauricio-spitta/" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
                   <FaLinkedinIn className="h-4 w-4" /> LinkedIn
                 </a>
-                <a href="https://github.com" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
+                <a href="https://github.com/hardguns" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
                   <FaGithub className="h-4 w-4" /> GitHub
                 </a>
-                <a href="" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black">
+                <a href="/files/CV - Mauricio Spitta.pdf" className="flex items-center gap-3 rounded-2xl border border-zinc-800 px-4 py-3 transition hover:bg-black" download>
                   <ExternalLink className="h-4 w-4" /> Download CV
                 </a>
               </div>
@@ -654,7 +694,7 @@ function ProjectDetailPage({ project, goBack }) {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {Array.from({ length: project.galleryCount }).map((_, index) => (
-                <GalleryTile key={`${project.slug}-${index}`} projectTitle={project.title} index={index} />
+                <GalleryTile key={`${project.slug}-${index}`} projectTitle={project.title} index={index} projectSlug={project.slug} gallerySrc={project.gallerySrc} fileExtension={project.fileExtensions[index]} />
               ))}
             </div>
           </div>

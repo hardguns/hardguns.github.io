@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+public/videos/NewMoonGameplay.mp4
+public/videos/GameplayNewMoon.mp4
