@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, ExternalLink, Mail, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ExternalLink, Mail, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { image } from "framer-motion/client";
 
@@ -29,9 +29,12 @@ const professionalProjects = [
       "Built GAS systems from scratch to create different character abilities.",
       "Implemented game sounds using FMOD and created a dynamic music system.",
     ],
-    secondaryTitle: "Developed by",
-    secondaryType: "companies",
-    secondaryItems: ["Teravision Games", "IllFonic"],
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: [" ", " "],
+    developerText: "Developed by",
+    developerType: "companies",
+    developerItems: ["Teravision Games", "IllFonic"],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -62,12 +65,15 @@ const professionalProjects = [
       "Drove performance optimization of AI and gameplay systems, including replication improvements, latency management, and trace analysis.",
       "Mentored teammates by sharing best practices in Unreal Engine and C++, performing code reviews, and supporting maintainable codebases.",
     ],
-    secondaryTitle: "Developed by",
-    secondaryType: "companies",
-    secondaryItems: ["Teravision Games", "Robot Entertainment", "Meta"],
-    galleryCount: 4,
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: ["Save system", "Throw system", "AI state driven system", "Progression, unlock and upgrade system", "Multiplayer replication using push model", "Network optimization", "CPU and GPU optimization systems"],
+    developerText: "Developed by",
+    developerType: "companies",
+    developerItems: ["Teravision Games", "Robot Entertainment", "Meta"],
+    galleryCount: 5,
     gallerySrc: "images/OrcsMustDie/",
-    fileExtensions: ["jpg", "jpg"],
+    fileExtensions: ["png", "png", "jpg", "png", "png"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "AI", "Optimization"],
   },
 ];
@@ -100,6 +106,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["Dynamic camera system", "Multiplayer connection"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -108,8 +117,8 @@ const personalProjects = [
   {
     slug: "blaster-multiplayer",
     title: "Blaster Multiplayer",
-    studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2024",
+    studioLine: "Course",
+    cardMeta: "Course · 2024",
     platforms: "PC",
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
@@ -134,6 +143,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["Multiplayer character movement and gunplay", "Match control system", "Pickup system"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -167,6 +179,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["AI behavior", "Gunplay", "Character movement", "Pickup system"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -198,6 +213,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Audio and UI"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -230,6 +248,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["Lobby system", "FPS character and weapons", "Multiplayer replication functionality"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/",
     fileExtensions: ["jpg", "jpg"],
@@ -262,6 +283,9 @@ const personalProjects = [
     secondaryTitle: "Systems",
     secondaryType: "list",
     secondaryItems: ["Combat systems", "Gameplay flow", "Player progression", "NPC Dialogue interactions", "Quest progression"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
     galleryCount: 4,
     gallerySrc: "images/NewMoon/",
     fileExtensions: ["gif", "gif", "gif", "gif"],
@@ -292,6 +316,39 @@ function setProjectInUrl(slug, setCurrentProjectSlug, options = {}) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
+
+const isYouTube = (url) =>
+  url.includes("youtube.com/embed/") || url.includes("youtu.be/") || url.includes("youtube.com/watch");
+
+const isLocalVideo = (url) =>
+  /\.(mp4|webm|ogg)$/i.test(url);
+
+const getYouTubeEmbedUrl = (url) => {
+  try {
+    if (url.includes("youtube.com/embed/")) {
+      return `${url}${url.includes("?") ? "&" : "?"}autoplay=1&mute=1`;
+    }
+
+    if (url.includes("youtube.com/watch")) {
+      const parsed = new URL(url);
+      const videoId = parsed.searchParams.get("v");
+      return videoId
+        ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`
+        : url;
+    }
+
+    if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+      return videoId
+        ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`
+        : url;
+    }
+
+    return url;
+  } catch {
+    return url;
+  }
+};
 
 function ProjectCard({ project, index, onOpen }) {
   return (
@@ -348,16 +405,133 @@ function CompanyTile({ name }) {
   );
 }
 
-function GalleryTile({ projectTitle, index, projectSlug, gallerySrc, fileExtension }) {
+function ProjectGallery({ project }) {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const images = useMemo(() => {
+    return Array.from({ length: project.galleryCount }).map((_, index) => ({
+      src: `${project.gallerySrc}${project.slug}${index + 1}.${project.fileExtensions[index]}`,
+      alt: `${project.title} - Shot ${index + 1}`,
+      label: `Shot ${index + 1}`,
+    }));
+  }, [project]);
+
+  const openModal = (index) => setSelectedIndex(index);
+  const closeModal = () => setSelectedIndex(null);
+
+  const goPrev = () => {
+    setSelectedIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  const goNext = () => {
+    setSelectedIndex((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex, images.length]);
+
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-zinc-800 bg-black">
-      <div className="w-full">
-        <img src={`${gallerySrc}${projectSlug}${index + 1}.${fileExtension}`} alt={`${projectTitle} shot ${index + 1}`} className="h-full w-full object-cover" />
+    <>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {images.map((image, index) => (
+          <button
+            key={`${project.slug}-${index}`}
+            type="button"
+            onClick={() => openModal(index)}
+            className="group overflow-hidden rounded-[1.75rem] border border-zinc-800 bg-zinc-950 text-left transition hover:border-zinc-700"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="px-4 py-3">
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
+                {project.title} · {image.label}
+              </p>
+            </div>
+          </button>
+        ))}
       </div>
-      <div className="border-t border-zinc-800 px-4 py-3 text-xs uppercase tracking-[0.18em] text-zinc-500">
-        {projectTitle} · Shot {index + 1}
-      </div>
-    </div>
+
+      {selectedIndex !== null && (
+        <div id="modaldiv"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/65 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <button
+            type="button"
+            onClick={closeModal}
+            className="absolute right-6 top-6 z-[110] rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+            aria-label="Close gallery"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {images.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
+                className="absolute left-4 top-1/2 z-[110] -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 md:left-8"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-7 w-7" />
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
+                className="absolute right-4 top-1/2 z-[110] -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 md:right-8"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-7 w-7" />
+              </button>
+            </>
+          )}
+
+          <div id="border"
+            className="relative mx-auto flex max-h-[90vh] w-full max-w-[95vw] items-center justify-center px-16 md:px-24"
+            onClick={(e) => { e.stopPropagation(); closeModal();} }
+          >
+            <img
+              src={images[selectedIndex].src}
+              alt={images[selectedIndex].alt}
+              className="max-h-[85vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+            />
+          </div>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/40 px-4 py-2 text-sm text-zinc-200 backdrop-blur-sm">
+            {selectedIndex + 1} / {images.length}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -578,7 +752,7 @@ function ProjectDetailPage({ project, goBack }) {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <header className="border-b border-zinc-800 bg-black/80 backdrop-blur">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <button
             type="button"
@@ -587,7 +761,7 @@ function ProjectDetailPage({ project, goBack }) {
           >
             <ArrowLeft className="h-4 w-4" /> Back
           </button>
-          <span className="text-sm font-semibold tracking-[0.18em] uppercase">{project.category}</span>
+          <span className="text-sm font-semibold tracking-[0.18em] uppercase">{project.title}</span>
         </div>
       </header>
 
@@ -596,91 +770,109 @@ function ProjectDetailPage({ project, goBack }) {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start"
+          className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center"
         >
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.28em] text-zinc-500">
               {project.year} · {project.category}
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               {project.title}
             </h1>
-            <p className="mt-4 text-sm text-zinc-400">{project.studioLine}</p>
+            <p className="mt-4 text-lg text-zinc-400">{project.studioLine}</p>
             {project.subtitle ? <p className="mt-3 text-sm text-zinc-500">{project.subtitle}</p> : null}
             <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-400">{project.overview}</p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Platforms</p>
-                <p className="mt-2 text-sm leading-7 text-zinc-300">{project.platforms}</p>
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Platforms</p>
+                <p className="mt-2 text-lg leading-7 text-zinc-300">{project.platforms}</p>
               </div>
               <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Genre</p>
-                <p className="mt-2 text-sm leading-7 text-zinc-300">{project.genre}</p>
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Genre</p>
+                <p className="mt-2 text-lg leading-7 text-zinc-300">{project.genre}</p>
               </div>
             </div>
 
             <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
-              <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Tech</p>
+              <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Tech</p>
               <p className="mt-2 text-sm leading-7 text-zinc-300">{project.tech}</p>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950">
-            {project.video ? (
-              <div className="aspect-video w-full">
-                <iframe
-                  className="h-full w-full"
-                  src={project.video}
-                  title={`${project.title} video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            ) : (
-              <div className="aspect-video w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
-            )}
-            <div className="flex items-center justify-between border-t border-zinc-800 px-5 py-4 text-sm text-zinc-400">
-              <span>Project video</span>
-              <span>{project.video ? "Embedded" : "Placeholder"}</span>
+          {project.video ? (
+        <div className="aspect-video w-full">
+          {isYouTube(project.video) ? (
+            <iframe
+              className="h-full w-full"
+              src={getYouTubeEmbedUrl(project.video)}
+              title={`${project.title} video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : isLocalVideo(project.video) ? (
+            <video
+              className="h-full w-full"
+              src={project.video}
+              autoPlay
+              muted
+              playsInline
+              controls
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-sm text-zinc-400">
+              Unsupported video source
             </div>
-          </div>
+          )}
+        </div>
+        ) : (
+        <div className="aspect-video w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
+        )}
+</div>
+
         </motion.div>
 
         <section className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-8">
             <div className="space-y-8">
               <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Role</p>
-                <p className="mt-2 text-sm leading-7 text-zinc-300">{project.role}</p>
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Role</p>
+                <p className="mt-2 text-lg leading-7 text-zinc-300">{project.role}</p>
               </div>
 
               <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Key Learnings</p>
-                <div className="mt-3 space-y-3 text-sm leading-7 text-zinc-300">
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Key Learnings</p>
+                <div className="mt-3 space-y-3 text-md leading-7 text-zinc-300">
                   {project.learnings.map((item) => (
                     <p key={item}>• {item}</p>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">{project.secondaryTitle}</p>
-                {project.secondaryType === "companies" ? (
-                  <div className={`mt-4 grid gap-4 ${project.secondaryItems.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
-                    {project.secondaryItems.map((item) => (
-                      <CompanyTile key={item} name={item} />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="mt-3 space-y-3 text-sm leading-7 text-zinc-300">
+              {project.secondaryTitle !== "" && (
+               <div>
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">{project.secondaryTitle}</p>
+                <div className="mt-3 space-y-3 text-md leading-7 text-zinc-300">
                     {project.secondaryItems.map((item) => (
                       <p key={item}>• {item}</p>
                     ))}
+                </div>
+               </div>
+              )}
+
+              {project.developerText !== "" && (
+               <div>
+                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">{project.developerText}</p>
+                <div className={`mt-4 grid gap-4 ${project.developerItems.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
+                    {project.developerItems.map((item) => (
+                      <CompanyTile key={item} name={item} />
+                    ))}
                   </div>
-                )}
-              </div>
+               </div>
+              )}
+
             </div>
           </div>
 
@@ -693,12 +885,11 @@ function ProjectDetailPage({ project, goBack }) {
                 </p>
               </div>
               <span className="text-xs uppercase tracking-[0.22em] text-zinc-500">{project.galleryCount} images</span>
+              
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {Array.from({ length: project.galleryCount }).map((_, index) => (
-                <GalleryTile key={`${project.slug}-${index}`} projectTitle={project.title} index={index} projectSlug={project.slug} gallerySrc={project.gallerySrc} fileExtension={project.fileExtensions[index]} />
-              ))}
+            <div>
+              <ProjectGallery project={project} />
             </div>
           </div>
         </section>
