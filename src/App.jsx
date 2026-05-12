@@ -11,7 +11,19 @@ const professionalProjects = [
     image: "/images/killerklowns.png",
     studioLine: "Teravision Games, IllFonic",
     cardMeta: "Teravision Games, IllFonic · 2024",
-    platforms: "Xbox Series X/S, PlayStation 5, Steam",
+    platforms: [
+      {
+        platformName: "Xbox Series X/S", 
+        platformLink: "https://www.xbox.com/es-CO/games/store/killer-klowns-from-outer-space-the-game/9nvhcv80zzmh"
+      }, 
+      {
+        platformName: "PlayStation 5", 
+        platformLink: "https://store.playstation.com/es-mx/concept/10009210"
+      },
+      {
+        platformName: "Steam", 
+        platformLink: "https://store.steampowered.com/app/1556100/Killer_Klowns_From_Outer_Space_The_Game/"
+      }],
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
     genre: "Asymmetrical horror, 7v3 PvP, Multiplayer",
@@ -46,7 +58,12 @@ const professionalProjects = [
     image: "/images/orcs.png",
     studioLine: "Teravision Games, Robot Entertainment, Meta",
     cardMeta: "Teravision Games, Robot Entertainment, Meta · 2026",
-    platforms: "Meta Quest 2/3/3S",
+    platforms: [
+      {
+        platformName: "Meta Quest 2 / 3 / 3S", 
+        platformLink: "https://www.meta.com/experiences/orcs-must-die-by-the-blade/6035302119914455/?srsltid=AfmBOoqjPwUJaNJe4UL48svWwHYoAmB0CBFEI06evsLf6b6J-ISUrkxV"
+      },
+    ],
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
     genre: "Adventure • Role playing • Action • Co-op • VR",
@@ -84,7 +101,12 @@ const personalProjects = [
     title: "Cannon Spike Like",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2026",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      },
+    ],
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
     genre: "Singleplayer, Multiplayer, Co-op, PvE, Multi-directional shooter",
@@ -105,7 +127,7 @@ const personalProjects = [
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Dynamic camera system", "Multiplayer connection"],
+    secondaryItems: ["Dynamic camera system", "Multiplayer connection", "Gunplay", "Character movement"],
     developerText: "",
     developerType: "",
     developerItems: [],
@@ -119,7 +141,12 @@ const personalProjects = [
     title: "Blaster Multiplayer",
     studioLine: "Course",
     cardMeta: "Course · 2024",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      }
+    ],
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
     genre: "Multiplayer, TPS, PvP",
@@ -159,7 +186,12 @@ const personalProjects = [
     cardMeta: "Bootcamp · 2021",
     subtitle:
       "Game Developer bootcamp project set developed in Colombia, centered on prototyping simple but engaging gameplay mechanics.",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      }
+    ],
     engine: "Unity",
     engineicon: "/icons/unity.svg",
     genre: "Singleplayer",
@@ -193,7 +225,12 @@ const personalProjects = [
     title: "Project W.E.S.T.",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2020",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      }
+    ],
     engine: "Unreal Engine",
     engineicon: "/icons/unrealengine.svg",
     genre: "Singleplayer, TPS",
@@ -228,7 +265,12 @@ const personalProjects = [
     image: "/images/urbanwarzone.png",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2020",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      }
+    ],
     engine: "Unity",
     engineicon: "/icons/unity.svg",
     genre: "Multiplayer, FPS, PvP",
@@ -263,7 +305,12 @@ const personalProjects = [
     image: "/images/NewMoon/newmoon.png",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2019",
-    platforms: "PC",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      }
+    ],
     engine: "Unity",
     engineicon: "/icons/unity.svg",
     genre: "Singleplayer, RPG, Turn-based combat",
@@ -293,6 +340,73 @@ const personalProjects = [
     tags: ["Unity", "C#", "RPG", "Turn-based", "UI"],
   },
 ];
+
+function AuroraBackground() {
+  const canvasRef = React.useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    const orbs = [
+      { x: 0.15, y: 0.75, r: 0.55, color: "220,30,30",  vx: 0.00015, vy: -0.0001  },
+      { x: 0.80, y: 0.20, r: 0.50, color: "30,40,220",   vx: -0.0001, vy: 0.00012  },
+      { x: 0.50, y: 0.55, r: 0.35, color: "160,20,20",   vx: 0.00008, vy: 0.00015  },
+    ];
+
+    let animId;
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    function draw() {
+      const { width: w, height: h } = canvas;
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, w, h);
+        
+      orbs.forEach((o) => {
+        const gx = o.x * w;
+        const gy = o.y * h;
+        const gr = o.r * Math.max(w, h);
+        const g  = ctx.createRadialGradient(gx, gy, 0, gx, gy, gr);
+        g.addColorStop(0,   `rgba(${o.color},0.20)`);  // era 0.55
+        g.addColorStop(0.5, `rgba(${o.color},0.06)`);  // era 0.15
+        g.addColorStop(1,   `rgba(${o.color},0)`);
+        ctx.globalCompositeOperation = "screen";
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, w, h);
+      });
+
+      ctx.globalCompositeOperation = "source-over";
+      orbs.forEach((o) => {
+        o.x += o.vx;
+        o.y += o.vy;
+        if (o.x < 0 || o.x > 1) o.vx *= -1;
+        if (o.y < 0 || o.y > 1) o.vy *= -1;
+      });
+
+      animId = requestAnimationFrame(draw);
+    }
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 -z-10 pointer-events-none"
+    />
+  );
+}
 
 function getProjectFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -362,7 +476,7 @@ function ProjectCard({ project, index, onOpen }) {
       transition={{ duration: 0.45, delay: index * 0.05 }}
       className="group block w-full text-left"
     >
-      <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-black/30">
+      <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-black/30">
         <img src={project.image} alt="project" className="aspect-[16/9] w-full bg-gradient-to-br" />
         <div className="p-6 pb-4 relative">
           <div className="mb-4 flex items-start justify-between gap-3">
@@ -538,8 +652,9 @@ function ProjectGallery({ project }) {
 
 function HomePage({ openProject, menuOpen, setMenuOpen }) {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur">
+    <div className="min-h-screen overflow-hidden text-white">
+      <AuroraBackground />
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-black/20 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <a href="#home" className="text-sm font-semibold tracking-[0.18em] uppercase">
             Mauricio Spitta
@@ -615,13 +730,13 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
 
             <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
               {[
-                ["2", "Shipped videogames"],
+                ["2", "Shipped videogames for consoles and VR sets"],
                 ["Gameplay and AI", "Driven systems"],
                 ["Unreal Engine, C++, AngelScript", "Core stack"],
               ].map(([value, label]) => (
                 <div
                   key={label}
-                  className="rounded-3xl border border-zinc-800 bg-zinc-950 p-5"
+                  className="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-5"
                 >
                   <p className="text-2xl font-semibold text-white">{value}</p>
                   <p className="mt-2 text-sm leading-6 text-zinc-400">{label}</p>
@@ -636,7 +751,7 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-zinc-500">Selected work</p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Professional projects</h2>
             <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-400">
-              Projects developed with multiple interdisciplinary teams, focused on Co-op and PvP multiplayer, mentorship, network, CPU and GPU optimization.
+              Projects I developed with multiple interdisciplinary teams, focused on Co-op and PvP multiplayer, gameplay, AI, mentorship, network, CPU and GPU optimization.
             </p>
           </div>
 
@@ -667,7 +782,7 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <p className="mb-3 text-xs uppercase tracking-[0.28em] text-zinc-500">About</p>
-              <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950">
+              <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50">
                <img src="/images/me.jpg" alt="Profile" className="aspect-[4/5] w-full object-cover" />
               </div>
             </div>
@@ -689,7 +804,7 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
         </section>
 
  <section id="contact" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-8 sm:p-10">
+          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/30 p-8 sm:p-10">
             <p className="mb-3 text-xs uppercase tracking-[0.28em] text-zinc-500">Contact</p>
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div className="flex h-full flex-col justify-center text-left">
@@ -740,8 +855,7 @@ function ProjectDetailPage({ project, goBack }) {
           <button
             type="button"
             onClick={goBack}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-zinc-700 px-4 py-2 text-sm transition hover:bg-zinc-900"
-          >
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-zinc-700 px-4 py-2 text-sm transition hover:bg-zinc-900">
             <ArrowLeft className="h-4 w-4" /> Back to projects
           </button>
           <h1 className="text-4xl font-semibold tracking-tight">Project not found</h1>
@@ -752,8 +866,9 @@ function ProjectDetailPage({ project, goBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur">
+    <div className="min-h-screen text-white">
+      <AuroraBackground />
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-black/20 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <button
             type="button"
@@ -785,23 +900,35 @@ function ProjectDetailPage({ project, goBack }) {
             <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-400">{project.overview}</p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950/50 p-4">
                 <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Platforms</p>
-                <p className="mt-2 text-lg leading-7 text-zinc-300">{project.platforms}</p>
+                {project.platforms.map((item, index) => (
+                  <span key={item.platformName}>
+                  {item.platformLink ? (
+                  <a className="mt-2 text-lg leading-7 text-zinc-300 underline underline-offset-4 decoration-zinc-600 hover:text-white hover:decoration-white transition-colors" key={item.platformName} href={item.platformLink} target="_blank">
+                    {item.platformName}
+                  </a>
+                ) : (
+                  <p className="mt-2 text-lg leading-7 text-zinc-300" key={item.platformName}>{item.platformName}</p>
+                )}
+
+                {index < project.platforms.length - 1 && ", "}
+                </span>
+                ))}
               </div>
-              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950/50 p-4">
                 <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Genre</p>
                 <p className="mt-2 text-lg leading-7 text-zinc-300">{project.genre}</p>
               </div>
             </div>
 
-            <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+            <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950/50 p-4">
               <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Tech</p>
               <p className="mt-2 text-sm leading-7 text-zinc-300">{project.tech}</p>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950">
+          <div className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50">
           {project.video ? (
         <div className="aspect-video w-full">
           {isYouTube(project.video) ? (
@@ -836,7 +963,7 @@ function ProjectDetailPage({ project, goBack }) {
         </motion.div>
 
         <section className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-8">
+          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/50 p-8">
             <div className="space-y-8">
               <div>
                 <p className="text-md uppercase tracking-[0.22em] text-zinc-500">Role</p>
@@ -877,7 +1004,7 @@ function ProjectDetailPage({ project, goBack }) {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-8">
+          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/50 p-8">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">Project gallery</p>
