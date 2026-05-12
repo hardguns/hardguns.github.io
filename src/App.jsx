@@ -22,8 +22,8 @@ const professionalProjects = [
     overview:
       "Killer Klowns from Outer Space: The Game is an asymmetrical multiplayer horror based on the iconic ‘80s film. In the battle between Killer Klowns and citizens of Crescent Cove.",
     tech: "Unreal Engine, C++, GAS, Multiplayer, FMOD, AI, Network Optimization, Gameplay",
-    video: "https://www.youtube.com/watch?v=1LQxnkXpm-A",
-    role: "Unreal Programmer, Senior Gameplay Programmer",
+    video: "https://www.youtube.com/embed/AMfZz60EBuk?si=9Z5vdmFgs9mSqL1W",
+    role: "Unreal Programmer, AI Programmer, Senior Gameplay Programmer,",
     learnings: [
       "Learned how multiplayer features work in Unreal Engine and how to implement them in production systems.",
       "Built GAS systems from scratch to create different character abilities.",
@@ -66,7 +66,7 @@ const professionalProjects = [
     secondaryType: "companies",
     secondaryItems: ["Teravision Games", "Robot Entertainment", "Meta"],
     galleryCount: 4,
-    gallerySrc: "images/",
+    gallerySrc: "images/OrcsMustDie/",
     fileExtensions: ["jpg", "jpg"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "AI", "Optimization"],
   },
@@ -252,7 +252,7 @@ const personalProjects = [
     overview:
       "First project I worked on in videogames, focused on learning the basics of game programming by creating systems like turn-based combat, inventory, character movement, UI, and core components.",
     tech: "Unity, C#, Photoshop",
-    video: "videos/GameplayNewMoon.mp4",
+    video: "videos/Gameplay.mp4",
     role: "Game Developer - Game Designer",
     learnings: [
       "Developed a game from the ground up, covering its concept, structure, and execution.",
@@ -505,6 +505,9 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
               <p>
                 I am driven by creating innovative player experiences and solving complex technical challenges. My career goal is to continue growing in the industry and contribute to building dynamic, impactful games.
               </p>
+              <p>
+                I do enjoy playing and creating games as part of my life style, hoping to keep growing in the industry. I'm striving to fulfill my dream of making AAA games
+              </p>
               </div>
             </div>
           </div>
@@ -516,10 +519,10 @@ function HomePage({ openProject, menuOpen, setMenuOpen }) {
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div className="flex h-full flex-col justify-center text-left">
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Let’s build something memorable.
+                  I would be excited to contribute my experience to build and create memorable games.
                 </h2>
                 <p className="mt-4 text-base leading-7 text-zinc-400">
-                  Open to gameplay, AI, multiplayer, and technical design opportunities in games.
+                  Open to gameplay, AI, or multiplayer opportunities for games.
                 </p>
               </div>
 
