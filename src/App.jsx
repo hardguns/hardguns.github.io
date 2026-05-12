@@ -29,15 +29,15 @@ const professionalProjects = [
       "Built GAS systems from scratch to create different character abilities.",
       "Implemented game sounds using FMOD and created a dynamic music system.",
     ],
-    secondaryTitle: "Systems",
+    secondaryTitle: "Systems (I've worked in the project)",
     secondaryType: "list",
-    secondaryItems: [" ", " "],
+    secondaryItems: ["AI state behavior (humans, lackeys, balloon dog)", "Escape system", "Klown and human abilities (using GAS)", "Inventory system", "Throw system", "Resurrection system", "CPU Optimization", "Network Optimization"],
     developerText: "Developed by",
     developerType: "companies",
     developerItems: ["Teravision Games", "IllFonic"],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
+    galleryCount: 6,
+    gallerySrc: "images/KillerKlowns/",
+    fileExtensions: ["jpg", "png", "jpg", "jpg", "png", "jpg"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "FMOD", "AI"],
   },
   {
@@ -67,7 +67,7 @@ const professionalProjects = [
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Save system", "Throw system", "AI state driven system", "Progression, unlock and upgrade system", "Multiplayer replication using push model", "Network optimization", "CPU and GPU optimization systems"],
+    secondaryItems: ["Save system", "Throw system", "AI state driven system for enemies", "Progression, unlock and upgrade system", "Multiplayer replication using push model", "Network optimization", "CPU and GPU optimization systems"],
     developerText: "Developed by",
     developerType: "companies",
     developerItems: ["Teravision Games", "Robot Entertainment", "Meta"],
@@ -154,6 +154,7 @@ const personalProjects = [
   {
     slug: "box-shooter-roller-madness",
     title: "Box Shooter / Roller Madness",
+    image: "/images/unitybootcamp.png",
     studioLine: "Bootcamp",
     cardMeta: "Bootcamp · 2021",
     subtitle:
@@ -169,7 +170,7 @@ const personalProjects = [
     overview:
       "Arcade-style games built around simple, fast-paced objectives. The first focuses on shooting boxes of different colors to gain buffs and debuffs while aiming for the highest possible score. The second centers on collecting coins as quickly as possible while avoiding hostile cubes, encouraging speedrun-style gameplay.",
     tech: "Unity, C#",
-    video: null,
+    video: "videos/BootcampGameplay.mp4",
     role: "Game Developer - Game Designer",
     learnings: [
       "Gained initial experience working with AI behavior systems in Unity.",
@@ -178,13 +179,13 @@ const personalProjects = [
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["AI behavior", "Gunplay", "Character movement", "Pickup system"],
+    secondaryItems: ["AI behavior", "Gunplay", "Character movement", "Pickup system", "Game flow"],
     developerText: "",
     developerType: "",
     developerItems: [],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
+    galleryCount: 9,
+    gallerySrc: "images/UnityBootcamp/",
+    fileExtensions: ["png", "png", "png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unity", "C#", "Arcade", "AI", "Prototype"],
   },
   {
@@ -251,9 +252,9 @@ const personalProjects = [
     developerText: "",
     developerType: "",
     developerItems: [],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
+    galleryCount: 5,
+    gallerySrc: "images/UrbanWarzone/",
+    fileExtensions: ["png", "png", "png", "png", "png"],
     tags: ["Unity", "C#", "Photon", "FPS", "Multiplayer"],
   },
   {
@@ -401,7 +402,7 @@ function ProjectCard({ project, index, onOpen }) {
 
 function CompanyTile({ name }) {
   return (
-    <img src={`images/${name}.png`} alt={`${name}`} className="aspect-[16/9] h-full w-full object-cover" />
+    <img src={`images/${name}.png`} alt={`${name}`} className="h-24 w-auto object-contain" />
   );
 }
 
@@ -864,7 +865,7 @@ function ProjectDetailPage({ project, goBack }) {
 
               {project.developerText !== "" && (
                <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">{project.developerText}</p>
+                <p className="text-md uppercase tracking-[0.22em] text-zinc-500">{project.developerText}</p>
                 <div className={`mt-4 grid gap-4 ${project.developerItems.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
                     {project.developerItems.map((item) => (
                       <CompanyTile key={item} name={item} />
