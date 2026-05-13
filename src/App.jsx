@@ -139,8 +139,8 @@ const personalProjects = [
   {
     slug: "blaster-multiplayer",
     title: "Blaster Multiplayer",
-    studioLine: "Course",
-    cardMeta: "Course · 2024",
+    studioLine: "Course - Project",
+    cardMeta: "Course - Project · 2024",
     platforms: [
       {
         platformName: "PC", 
@@ -166,6 +166,8 @@ const personalProjects = [
       "Created a plugin to convert Unreal Engine projects to multiplayer.",
       "Applied lag compensation techniques including client-side prediction and server-side rewind.",
       "Learned the Unreal Engine Online Subsystem to support multiplayer using different online services.",
+      "Created gameplay focused in multiplayer matches",
+      "Acknoledged new Unreal Engine 5 tools for gameplay and animation features",
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
@@ -223,6 +225,7 @@ const personalProjects = [
   {
     slug: "project-mfg",
     title: "Project W.E.S.T.",
+    image: "/images/mfgcover.png",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2020",
     platforms: [
@@ -241,7 +244,7 @@ const personalProjects = [
     overview:
       "First project developed in Unreal Engine, centered on gameplay mechanics and built through a multidisciplinary approach across key areas of the engine, including AI, UI, animation, audio, and gameplay systems, while combining C++ implementation with game design principles.",
     tech: "Unreal Engine, C++",
-    video: null,
+    video: "videos/ProjectmfgGameplay.mp4",
     role: "Game Developer - Game Designer",
     learnings: [
       "Continued learning Unreal Engine with an initial exploration of the shooter genre.",
@@ -250,13 +253,13 @@ const personalProjects = [
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Audio and UI"],
+    secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Objective tracker", "Endless wave system", "Audio and UI"],
     developerText: "",
     developerType: "",
     developerItems: [],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
+    galleryCount: 7,
+    gallerySrc: "images/MFG/",
+    fileExtensions: ["png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unreal Engine", "C++", "TPS", "Gameplay"],
   },
   {
