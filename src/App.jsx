@@ -48,7 +48,9 @@ const professionalProjects = [
     developerType: "companies",
     developerItems: ["Teravision Games", "IllFonic"],
     galleryCount: 6,
+    galleryDescription: "Gallery images directly showcasing the gameplay systems, AI behaviors, multiplayer mechanics, abilities, combat interactions, and gameplay features detailed throughout this project breakdown.",
     gallerySrc: "images/KillerKlowns/",
+    galleryDescriptions: ["Human items and inventory", "Klowns inventory + Game HUD", "Escape systems", "Cocoons and lackeys generation", "General gameplay", "Lackeys behavior"],
     fileExtensions: ["jpg", "png", "jpg", "jpg", "png", "jpg"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "FMOD", "AI"],
   },
@@ -89,53 +91,15 @@ const professionalProjects = [
     developerType: "companies",
     developerItems: ["Teravision Games", "Robot Entertainment", "Meta"],
     galleryCount: 5,
+    galleryDescription: "A showcase of intense melee encounters, enemy combat flow, weapon gameplay, and chaotic action moments defining the gameplay experience of Orcs Must Die! By The Blade.",
     gallerySrc: "images/OrcsMustDie/",
+    galleryDescriptions: ["Enemies and weapons", "Enemy behavior states", "Game upgrades", "Boss battle 1", "Boss battle 2"],
     fileExtensions: ["png", "png", "jpg", "png", "png"],
     tags: ["Unreal Engine", "C++", "GAS", "Multiplayer", "AI", "Optimization"],
   },
 ];
 
 const personalProjects = [
-  {
-    slug: "cannon-spike-like",
-    title: "Cannon Spike Like (WIP)",
-    studioLine: "Solo Project",
-    cardMeta: "Solo Project · 2026",
-    platforms: [
-      {
-        platformName: "PC", 
-        platformLink: ""
-      },
-    ],
-    engine: "Unreal Engine",
-    engineicon: "/icons/unrealengine.svg",
-    genre: "Singleplayer, Multiplayer, Co-op, PvE, Multi-directional shooter",
-    category: "Personal Project",
-    year: "2026",
-    shortDescription:
-      "Modern reinterpretation of Cannon Spike built in Unreal Engine with AngelScript, multiplayer support, AI, and dynamic camera systems.",
-    overview:
-      "A modern reinterpretation of Cannon Spike, developed in Unreal Engine using the AngelScript framework, combining the fast-paced spirit of the original with updated gameplay mechanics.",
-    tech: "Unreal Engine, AngelScript, Multiplayer, AI",
-    video: null,
-    role: "Game Developer - Game Designer",
-    learnings: [
-      "Accelerated gameplay mechanic development using AngelScript.",
-      "Implemented multiplayer functionality to support competitive gameplay.",
-      "Designed and developed a dynamic camera system to enhance combat readability and player movement.",
-      "Usage of AngelScript plugin that allows to use scripted classes to create and implemente features in Unreal Engine"
-    ],
-    secondaryTitle: "Systems",
-    secondaryType: "list",
-    secondaryItems: ["Dynamic camera system", "Multiplayer connection", "Gunplay", "Character movement"],
-    developerText: "",
-    developerType: "",
-    developerItems: [],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
-    tags: ["Unreal Engine", "AngelScript", "AI", "Multiplayer"],
-  },
   {
     slug: "blaster-multiplayer",
     title: "Blaster Multiplayer",
@@ -177,7 +141,9 @@ const personalProjects = [
     developerType: "",
     developerItems: [],
     galleryCount: 8,
+    galleryDescription: "Selected in-engine moments highlighting competitive shooter mechanics, combat encounters, traversal, pickups, and arcade-inspired multiplayer gameplay",
     gallerySrc: "images/Blaster/",
+    galleryDescriptions: ["Main Menu", "Match cooldown", "Weapons", "Eliminations", "General gameplay", "Weapon pickups", "Power pickups", "Game over"],
     fileExtensions: ["png", "png", "png", "png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unreal Engine", "Networking", "Multiplayer", "TPS", "PvP"],
   },
@@ -219,7 +185,9 @@ const personalProjects = [
     developerType: "",
     developerItems: [],
     galleryCount: 9,
+    galleryDescription: "Visual breakdown of gameplay systems including player movement, physics interactions, enemy behavior, combat scenarios, and prototype level implementation.",
     gallerySrc: "images/UnityBootcamp/",
+    galleryDescriptions: ["Box shooter - Shooting gameplay", "Box shooter - Game over", "Box shooter - Level completed", "Box shooter - 'Enemies' variety", "Roller madness - General gameplay", "Roller madness - Game over", "Roller madness - Level completed", "Roller madness - Screenshot 1", "Roller madness - Score"],
     fileExtensions: ["png", "png", "png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unity", "C#", "Arcade", "AI", "Prototype"],
   },
@@ -254,12 +222,14 @@ const personalProjects = [
     ],
     secondaryTitle: "Systems",
     secondaryType: "list",
-    secondaryItems: ["Weapons", "Mission system", "Save system", "Enemies AI and behavior", "Objective tracker", "Endless wave system", "Audio and UI"],
+    secondaryItems: ["Weapons", "Interaction system", "Mission system", "Ultimate ability system", "Save system", "Enemies AI and behavior", "Objective tracker", "Endless wave system", "Audio and UI"],
     developerText: "",
     developerType: "",
     developerItems: [],
     galleryCount: 7,
+    galleryDescription: "A visual showcase of tense combat moments, gameplay features, atmospheric environments and the tone of a sci-fi game",
     gallerySrc: "images/MFG/",
+    galleryDescriptions: ["Main menu", "Interaction system", "Gameplay", "Enemy AI behavior", "Game over", "Ultimate system activation", "HUD"],
     fileExtensions: ["png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unreal Engine", "C++", "TPS", "Gameplay"],
   },
@@ -299,7 +269,9 @@ const personalProjects = [
     developerType: "",
     developerItems: [],
     galleryCount: 5,
+    galleryDescription: "Selected moments highlighting firefights, player traversal, enemy encounters, and tactical combat spaces built for fast-paced urban warfare.",
     gallerySrc: "images/UrbanWarzone/",
+    galleryDescriptions: ["Lobby and player info", "World looking", "General gameplay", "Reload", "Gameplay"],
     fileExtensions: ["png", "png", "png", "png", "png"],
     tags: ["Unity", "C#", "Photon", "FPS", "Multiplayer"],
   },
@@ -339,9 +311,53 @@ const personalProjects = [
     developerType: "",
     developerItems: [],
     galleryCount: 5,
+    galleryDescription: "Development captures featuring environment art integration, most notable gameplay system, RPG feels to create quests and stories",
     gallerySrc: "images/NewMoon/",
+    galleryDescriptions: ["Main Menu", "Battle system", "Inventory system", "Dialogue system", "Boss battle"],
     fileExtensions: ["png", "gif", "gif", "gif", "gif"],
     tags: ["Unity", "C#", "RPG", "Turn-based", "UI"],
+  },
+  {
+    slug: "cannon-spike-like",
+    title: "Cannon Spike Like (WIP)",
+    image: "/images/cannonspikecover.png",
+    studioLine: "Solo Project",
+    cardMeta: "Solo Project · 2026",
+    platforms: [
+      {
+        platformName: "PC", 
+        platformLink: ""
+      },
+    ],
+    engine: "Unreal Engine",
+    engineicon: "/icons/unrealengine.svg",
+    genre: "Singleplayer, Multiplayer, Co-op, PvE, Multi-directional shooter",
+    category: "Personal Project",
+    year: "2026",
+    shortDescription:
+      "Modern reinterpretation of Cannon Spike built in Unreal Engine with AngelScript, multiplayer support, AI, and dynamic camera systems.",
+    overview:
+      "A modern reinterpretation of Cannon Spike, developed in Unreal Engine using the AngelScript framework, combining the fast-paced spirit of the original with updated gameplay mechanics.",
+    tech: "Unreal Engine, AngelScript, Multiplayer, AI",
+    video: null,
+    role: "Game Developer - Game Designer",
+    learnings: [
+      "Accelerated gameplay mechanic development using AngelScript.",
+      "Implemented multiplayer functionality to support competitive gameplay.",
+      "Designed and developed a dynamic camera system to enhance combat readability and player movement.",
+      "Usage of AngelScript plugin that allows to use scripted classes to create and implemente features in Unreal Engine"
+    ],
+    secondaryTitle: "Systems",
+    secondaryType: "list",
+    secondaryItems: ["Dynamic camera system", "Multiplayer connection", "Gunplay", "Character movement"],
+    developerText: "",
+    developerType: "",
+    developerItems: [],
+    galleryCount: 0,
+    galleryDescription: "",
+    gallerySrc: "images/",
+    fileExtensions: ["jpg", "jpg"],
+    tags: ["Unreal Engine", "AngelScript", "AI", "Multiplayer"],
   },
 ];
 
@@ -531,7 +547,7 @@ function ProjectGallery({ project }) {
     return Array.from({ length: project.galleryCount }).map((_, index) => ({
       src: `${project.gallerySrc}${project.slug}${index + 1}.${project.fileExtensions[index]}`,
       alt: `${project.title} - Shot ${index + 1}`,
-      label: `Shot ${index + 1}`,
+      label: `${project.galleryDescriptions[index]}`,
     }));
   }, [project]);
 
@@ -585,7 +601,7 @@ function ProjectGallery({ project }) {
             />
             <div className="px-4 py-3">
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
-                {project.title} · {image.label}
+                {image.label}
               </p>
             </div>
           </button>
@@ -1013,7 +1029,7 @@ function ProjectDetailPage({ project, goBack }) {
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">Project gallery</p>
                 <p className="mt-2 text-sm leading-7 text-zinc-400">
-                  Replace these placeholders with screenshots, captures, diagrams, or production visuals for the project.
+                  {project.galleryDescription}
                 </p>
               </div>
               <span className="text-xs uppercase tracking-[0.22em] text-zinc-500">{project.galleryCount} images</span>
