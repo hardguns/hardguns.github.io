@@ -98,7 +98,7 @@ const professionalProjects = [
 const personalProjects = [
   {
     slug: "cannon-spike-like",
-    title: "Cannon Spike Like",
+    title: "Cannon Spike Like (WIP)",
     studioLine: "Solo Project",
     cardMeta: "Solo Project · 2026",
     platforms: [
@@ -139,6 +139,7 @@ const personalProjects = [
   {
     slug: "blaster-multiplayer",
     title: "Blaster Multiplayer",
+    image: "/images/blastercover.png",
     studioLine: "Course - Project",
     cardMeta: "Course - Project · 2024",
     platforms: [
@@ -157,7 +158,7 @@ const personalProjects = [
     overview:
       "A third-person shooter centered on weapon variety and pickups, where players can find and use different firearms distributed throughout the map. The main objective is to eliminate opposing players before time runs out, delivering a fast-paced and competitive gameplay experience.",
     tech: "Unreal Engine, Networking, Multiplayer",
-    video: null,
+    video: "videos/BlasterGameplay.mp4",
     role: "Game Developer - Game Designer",
     learnings: [
       "Created my own subsystem to manage online sessions.",
@@ -175,9 +176,9 @@ const personalProjects = [
     developerText: "",
     developerType: "",
     developerItems: [],
-    galleryCount: 4,
-    gallerySrc: "images/",
-    fileExtensions: ["jpg", "jpg"],
+    galleryCount: 8,
+    gallerySrc: "images/Blaster/",
+    fileExtensions: ["png", "png", "png", "png", "png", "png", "png", "png", "png", "png"],
     tags: ["Unreal Engine", "Networking", "Multiplayer", "TPS", "PvP"],
   },
   {
