@@ -281,7 +281,7 @@ const personalProjects = [
     overview:
       "Unity project focused on first-person shooter development using Photon, featuring lobby creation and a simple multiplayer experience.",
     tech: "Unity, C#",
-    video: null,
+    video: "videos/UrbanWarzoneGameplay.mp4",
     role: "Game Developer - Game Designer",
     learnings: [
       "Built my first multiplayer game in Unity using Photon.",
@@ -334,9 +334,9 @@ const personalProjects = [
     developerText: "",
     developerType: "",
     developerItems: [],
-    galleryCount: 4,
+    galleryCount: 5,
     gallerySrc: "images/NewMoon/",
-    fileExtensions: ["gif", "gif", "gif", "gif"],
+    fileExtensions: ["png", "gif", "gif", "gif", "gif"],
     tags: ["Unity", "C#", "RPG", "Turn-based", "UI"],
   },
 ];
